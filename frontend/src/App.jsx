@@ -3,7 +3,7 @@ import axios from "axios"
 import { useDropzone } from "react-dropzone"
 import ReactMarkdown from "react-markdown"
 
-const API = "http://127.0.0.1:8000"
+const API = "https://documind-ai-7t3o.onrender.com/"
 
 const G = () => (
   <style>{`
