@@ -9,4 +9,4 @@ services:
       - key: GROQ_API_KEY
         sync: false
       - key: ALLOWED_ORIGINS
-        value: "http://localhost:5173"
+        value: "https://documindai-azure.vercel.app,http://localhost:5173"

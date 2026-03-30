@@ -3,7 +3,7 @@ import axios from "axios"
 import { useDropzone } from "react-dropzone"
 import ReactMarkdown from "react-markdown"
 
-const API = "https://documind-ai-7t3o.onrender.com"
+const API = import.meta.env.VITE_API_URL
 
 const G = () => (
   <style>{`
@@ -219,7 +219,7 @@ export default function App() {
         unlock("firstUpload")
         setMessages([{ role: "system", content: `"${res.data.filename}" ready — ${res.data.chunks_created} chunks indexed.` }])
         setTimeout(() => setUploadProgress(0), 800)
-      } catch { clearInterval(iv); setError("Upload failed. Is the backend running on port 8000?") }
+      } catch (err) { clearInterval(iv); console.error("Upload error:", err); setError("Upload failed. Please check your connection and try again.") }
       finally { setUploading(false) }
     }
   })
